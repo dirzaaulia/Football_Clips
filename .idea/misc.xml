@@ -7,10 +7,16 @@
         <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/drawable/ic_baseline_broken_image_24.xml" value="0.16052631578947368" />
         <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.16052631578947368" />
         <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16052631578947368" />
+        <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/drawable/ic_splash_screen.xml" value="0.19" />
+        <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/drawable/ic_splash_screen_logo_football.xml" value="0.1465" />
         <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/layout/activity_splash.xml" value="0.136" />
         <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/layout/activity_viewer.xml" value="0.15032894736842106" />
+        <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/layout/fragment_viewer.xml" value="0.13782894736842105" />
         <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/layout/item_clips.xml" value="0.23802083333333332" />
+        <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/layout/view_home_toolbar.xml" value="0.13717105263157894" />
+        <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/menu/main_menu.xml" value="0.13782894736842105" />
         <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16052631578947368" />
         <entry key="..\:/Android Studio/Projects/FootballClips/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.16052631578947368" />
       </map>

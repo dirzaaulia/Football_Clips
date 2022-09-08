@@ -7,58 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainActivity">
 
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:id="@+id/top_bar"
+  <androidx.fragment.app.FragmentContainerView
+      android:id="@+id/nav_host_fragment"
+      android:name="androidx.navigation.fragment.NavHostFragment"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:defaultNavHost="true"
+      app:navGraph="@navigation/nav_graph" />
+
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/bottom_nav"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:padding="8dp"
-      android:background="@color/grey_800"
-      android:orientation="horizontal"
-      app:layout_constraintTop_toTopOf="parent">
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/football_highlights"
-        android:textSize="22sp"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <ImageView
-        android:id="@+id/information"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_info_24"
-        app:layout_constraintTop_toTopOf="@id/title"
-        app:layout_constraintBottom_toBottomOf="@id/title"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="ContentDescription"
-        />
-
-  </androidx.constraintlayout.widget.ConstraintLayout>
-
-  <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/recycler_view"
-      android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:overScrollMode="never"
-      android:orientation="vertical"
-      android:visibility="gone"
-      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-      app:layout_constraintTop_toBottomOf="@id/top_bar"
-      app:layout_constraintBottom_toBottomOf="parent"
-      tools:listitem="@layout/item_clips"/>
-
-  <ProgressBar
-      android:id="@+id/progress_bar"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"/>
+      app:menu="@menu/main_menu"
+      app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

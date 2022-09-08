@@ -1,26 +1,17 @@
-buildscript {
-  repositories {
-    google()
-    mavenCentral()
-  }
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-  dependencies {
-    classpath("com.android.tools.build:gradle:${Version.toolsBuildGradle}")
-    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlinGradle}")
-    classpath("com.google.dagger:hilt-android-gradle-plugin:${Version.hiltGradle}")
-  }
+plugins {
+  id("com.android.application") version Version.toolsBuildGradle apply false
+  id("org.jetbrains.kotlin.android") version Version.kotlinGradle apply false
+  id("org.jetbrains.kotlin.kapt") version Version.kotlinGradle apply false
+  id("org.jetbrains.kotlin.plugin.parcelize") version Version.kotlinGradle apply false
+  id("com.google.dagger.hilt.android") version Version.hiltGradle apply false
+  id("com.diffplug.spotless") version Version.spotless apply false
+  id("androidx.navigation.safeargs.kotlin") version Version.navigation apply false
 }
 
-subprojects {
-  repositories {
-    google()
-    mavenCentral()
-    maven { url = uri("https://www.jitpack.io") }
-    maven {
-      url = uri("https://jitpack.io")
-      credentials {
-        username = "jp_uvj8t2utirothfevp7gb6l9udn"
-      }
-    }
-  }
+tasks.register("clean", Delete::class) {
+  delete(rootProject.buildDir)
 }
+
+tasks.withType<KotlinCompile> { kotlinOptions.jvmTarget = "11" }

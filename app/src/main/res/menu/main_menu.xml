@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeFragment"
+            android:icon="@drawable/ic_baseline_video_library_24"
+            android:title="@string/clips" />
+
+        <item
+            android:id="@+id/liveScoreFragment"
+            android:icon="@drawable/ic_baseline_live_tv_24"
+            android:title="@string/livescore" />
+
+<!--        <item-->
+<!--            android:id="@+id/aboutFragment"-->
+<!--            android:icon="@drawable/ic_baseline_info_24"-->
+<!--            android:title="@string/about" />-->
+    </group>
+</menu>

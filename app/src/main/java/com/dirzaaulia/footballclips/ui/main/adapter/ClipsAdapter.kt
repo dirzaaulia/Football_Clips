@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import coil.load
 import com.dirzaaulia.footballclips.R
-import com.dirzaaulia.footballclips.data.Clips
+import com.dirzaaulia.footballclips.data.scorebat.model.Clips
 import com.dirzaaulia.footballclips.databinding.ItemClipsBinding
 import com.dirzaaulia.footballclips.util.formatDateTime
 
@@ -27,8 +27,7 @@ class ClipsAdapter(
         LayoutInflater.from(parent.context),
         parent,
         false
-      ),
-      listener
+      )
     )
   }
 
@@ -39,9 +38,8 @@ class ClipsAdapter(
     }
   }
 
-  class ViewHolder(
-    private val binding: ItemClipsBinding,
-    private val listener: ClipsAdapterListener
+  inner class ViewHolder(
+    private val binding: ItemClipsBinding
   ): RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Clips) {
@@ -59,7 +57,8 @@ class ClipsAdapter(
         }
         date.text = formatDateTime(item.date)
         competition.text = item.competition
-        title.text = item.title
+        val videoType = item.videos?.get(0)?.title ?: ""
+        title.text = "${item.title} [ $videoType ]"
 
         root.setOnClickListener {
           listener.onItemClicked(item)

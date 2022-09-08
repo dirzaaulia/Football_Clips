@@ -1,4 +1,4 @@
-package com.dirzaaulia.footballclips.data
+package com.dirzaaulia.footballclips.data.scorebat.model
 
 import android.os.Parcelable
 import androidx.annotation.Keep

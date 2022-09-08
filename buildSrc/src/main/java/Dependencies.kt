@@ -4,11 +4,13 @@ object Dependencies {
 
   object AndroidX {
     private const val coreKtx = "androidx.core:core-ktx:${Version.coreKtx}"
+    private const val fragmentKtx = "androidx.fragment:fragment-ktx:${Version.fragmentKtx}"
     private const val splashScreen = "androidx.core:core-splashscreen:${Version.coreSplashScreen}"
     private const val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Version.swipeRefreshLayout}"
 
     val implementation = arrayListOf<String>().apply {
       add(coreKtx)
+      add(fragmentKtx)
       add(splashScreen)
       add(swipeRefreshLayout)
     }
@@ -38,7 +40,7 @@ object Dependencies {
       private const val rules = "androidx.test:rules:${Version.jUnit}"
       private const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
 
-      val implementation = arrayListOf<String>().apply {
+      val androidTestImplementation = arrayListOf<String>().apply {
         add(core)
         add(rules)
         add(espressoCore)
@@ -47,12 +49,24 @@ object Dependencies {
   }
 
   object Chucker {
-    const val debug = "com.github.chuckerteam.chucker:library:${Version.chucker}"
-    const val release = "com.github.chuckerteam.chucker:library-no-op:${Version.chucker}"
+    private const val debug = "com.github.chuckerteam.chucker:library:${Version.chucker}"
+    private const val release = "com.github.chuckerteam.chucker:library-no-op:${Version.chucker}"
+
+    val debugImplementation = arrayListOf<String>().apply {
+      add(debug)
+    }
+
+    val releaseImplementation = arrayListOf<String>().apply {
+      add(release)
+    }
   }
 
   object Coil {
-    const val coil = "io.coil-kt:coil:${Version.coil}"
+    private const val coil = "io.coil-kt:coil:${Version.coil}"
+
+    val implementation = arrayListOf<String>().apply {
+      add(coil)
+    }
   }
 
   object Coroutines {
@@ -66,44 +80,60 @@ object Dependencies {
   }
 
   object Hilt {
-    const val android = "com.google.dagger:hilt-android:${Version.hilt}"
-    const val compiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
+    private const val android = "com.google.dagger:hilt-android:${Version.hilt}"
+    private const val compiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
+
+    val implementation = arrayListOf<String>().apply {
+      add(android)
+    }
+
+    val kapt = arrayListOf<String>().apply {
+      add(compiler)
+    }
   }
 
-  object  JUnit {
-    const val junit = "junit:junit:${Version.jUnit}"
+  object JUnit {
+     private const val junit = "junit:junit:${Version.jUnit}"
+
+    val androidTestImplementation = arrayListOf<String>().apply {
+      add(junit)
+    }
   }
 
   object Kotlin {
-    const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Version.kotlin}"
+    private const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Version.kotlin}"
+
+    val implementation = arrayListOf<String>().apply {
+      add(stdlib)
+    }
   }
 
   object Material {
-    const val material = "com.google.android.material:material:${Version.materialDesign}"
+    private const val material = "com.google.android.material:material:${Version.materialDesign}"
+
+    val implementation = arrayListOf<String>().apply {
+      add(material)
+    }
   }
 
   object Paging {
-    const val runtime = "androidx.paging:paging-runtime:${Version.paging}"
-  }
-
-  object SquareUp {
-
-    object Moshi {
-      const val kotlin = "com.squareup.moshi:moshi-kotlin:${Version.moshi}"
-    }
-
-    object OkHttp {
-      const val logging = "com.squareup.okhttp3:logging-interceptor:${Version.okHttp}"
-    }
-
-    object Retrofit {
-      const val converterMoshi = "com.squareup.retrofit2:converter-moshi:${Version.retrofit}"
-    }
+    private const val runtime = "androidx.paging:paging-runtime:${Version.paging}"
 
     val implementation = arrayListOf<String>().apply {
-      add(Moshi.kotlin)
-      add(OkHttp.logging)
-      add(Retrofit.converterMoshi)
+      add(runtime)
+    }
+  }
+
+  object Service {
+
+    private const val kotlin = "com.squareup.moshi:moshi-kotlin:${Version.moshi}"
+    private const val logging = "com.squareup.okhttp3:logging-interceptor:${Version.okHttp}"
+    private const val converterMoshi = "com.squareup.retrofit2:converter-moshi:${Version.retrofit}"
+
+    val implementation = arrayListOf<String>().apply {
+      add(kotlin)
+      add(logging)
+      add(converterMoshi)
     }
 
   }
