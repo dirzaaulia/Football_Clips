@@ -14,24 +14,24 @@ import retrofit2.http.Query
 
 interface ScoreBatService {
 
-  @GET("video-api/v3/feed")
-  suspend fun getClips(
-    @Query("token") token: String = SCOREBAT_TOKEN
-  ): Response<ClipsResponse>
+    @GET("video-api/v3/feed")
+    suspend fun getClips(
+        @Query("token") token: String = SCOREBAT_TOKEN
+    ): Response<ClipsResponse>
 
-  companion object {
-    fun create(client: OkHttpClient): ScoreBatService {
+    companion object {
+        fun create(client: OkHttpClient): ScoreBatService {
 
-      val moshi = Moshi.Builder()
-        .add(KotlinJsonAdapterFactory())
-        .build()
+            val moshi = Moshi.Builder()
+                .add(KotlinJsonAdapterFactory())
+                .build()
 
-      return Retrofit.Builder()
-        .baseUrl(SCOREBAT_BASE_URL)
-        .client(client)
-        .addConverterFactory(MoshiConverterFactory.create(moshi))
-        .build()
-        .create(ScoreBatService::class.java)
+            return Retrofit.Builder()
+                .baseUrl(SCOREBAT_BASE_URL)
+                .client(client)
+                .addConverterFactory(MoshiConverterFactory.create(moshi))
+                .build()
+                .create(ScoreBatService::class.java)
+        }
     }
-  }
 }

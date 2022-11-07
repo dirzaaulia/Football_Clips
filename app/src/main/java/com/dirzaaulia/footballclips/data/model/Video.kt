@@ -7,6 +7,6 @@ import kotlinx.parcelize.Parcelize
 @Keep
 @Parcelize
 data class Video(
-  val title: String?,
-  val embed: String?
-): Parcelable
+    val title: String?,
+    val embed: String?
+) : Parcelable

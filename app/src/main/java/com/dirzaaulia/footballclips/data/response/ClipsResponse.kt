@@ -5,5 +5,5 @@ import com.dirzaaulia.footballclips.data.model.Clip
 
 @Keep
 data class ClipsResponse(
-  val response: List<Clip>?
+    val response: List<Clip>?
 )

@@ -16,7 +16,7 @@ import com.dirzaaulia.footballclips.databinding.FragmentViewerBinding
 import com.dirzaaulia.footballclips.ui.main.MainActivity
 
 
-class WorldCupFragment: Fragment() {
+class WorldCupFragment : Fragment() {
 
     private lateinit var binding: FragmentViewerBinding
 
@@ -62,7 +62,7 @@ class WorldCupFragment: Fragment() {
                 settings.javaScriptEnabled = true
                 settings.loadWithOverviewMode = true
                 settings.useWideViewPort = true
-                webViewClient = object: WebViewClient() {
+                webViewClient = object : WebViewClient() {
 
                     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                         binding.progressBar.isVisible = true
@@ -76,11 +76,13 @@ class WorldCupFragment: Fragment() {
 
                 }
 
-                val url = "<iframe src=\"https://www.scorebat.com/embed/league/fifa-world-cup/?token=MjExMDVfMTY2Nzc5MjA3OV82N2IxNTE5Njg1MTI4MTRiZjRhYzNlOGIwMDBkOGVjODBmZWNhZDRj\" frameborder=\"0\" width=\"600\" height=\"760\" allowfullscreen allow='autoplay; fullscreen' style=\"width:100%;height:760px;overflow:hidden;display:block;\" class=\"_scorebatEmbeddedPlayer_\"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>"
+                val url =
+                    "<iframe src=\"https://www.scorebat.com/embed/league/fifa-world-cup/?token=MjExMDVfMTY2Nzc5MjA3OV82N2IxNTE5Njg1MTI4MTRiZjRhYzNlOGIwMDBkOGVjODBmZWNhZDRj\" frameborder=\"0\" width=\"600\" height=\"760\" allowfullscreen allow='autoplay; fullscreen' style=\"width:100%;height:760px;overflow:hidden;display:block;\" class=\"_scorebatEmbeddedPlayer_\"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>"
                 val replacedUrl = url.replace("position:relative;padding-bottom:56.250%;", "")
                 var data =
                     "<html><meta name=\"viewport\" content='width=device-width, height=device-height, initial-scale=1.0,text/html,charset=utf-8'>"
-                data = "$data<body style=\"padding: 0; margin: 0;\"><center>$replacedUrl</center></body></html>"
+                data =
+                    "$data<body style=\"padding: 0; margin: 0;\"><center>$replacedUrl</center></body></html>"
                 loadDataWithBaseURL(null, data, "text/html", "UTF-8", null)
             }
         }

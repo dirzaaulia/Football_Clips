@@ -16,74 +16,75 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.chrisbanes.insetter.applyInsetter
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
-  private lateinit var binding: ActivityMainBinding
-  private lateinit var navHostFragment: NavHostFragment
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navHostFragment: NavHostFragment
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    WindowCompat.setDecorFitsSystemWindows(window, false)
-    installSplashScreen()
-    super.onCreate(savedInstanceState)
-    binding = ActivityMainBinding.inflate(layoutInflater)
-    setContentView(binding.root)
-    setupAppBar()
-    setupBottomNavigation()
-  }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        installSplashScreen()
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupAppBar()
+        setupBottomNavigation()
+    }
 
-  private fun setupAppBar() {
-    binding.appBar.toolbar.setOnMenuItemClickListener {
-      when (it.itemId) {
-        R.id.menu_info -> {
-          showInformationDialog()
-          true
+    private fun setupAppBar() {
+        binding.appBar.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.menu_info -> {
+                    showInformationDialog()
+                    true
+                }
+                else -> false
+            }
         }
-        else -> false
-      }
     }
-  }
 
-  private fun setupBottomNavigation() {
-    binding.apply{
-      this@MainActivity.navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-      val navController = this@MainActivity.navHostFragment.navController
-      bottomNav.setupWithNavController(navController)
+    private fun setupBottomNavigation() {
+        binding.apply {
+            this@MainActivity.navHostFragment =
+                supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            val navController = this@MainActivity.navHostFragment.navController
+            bottomNav.setupWithNavController(navController)
 
-      // Hide bottom nav on screens which don't require it
-      lifecycleScope.launchWhenResumed {
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-          appBar.root.isVisible = destination.id != R.id.viewerFragment
-          bottomNav.isVisible = destination.id != R.id.viewerFragment
+            // Hide bottom nav on screens which don't require it
+            lifecycleScope.launchWhenResumed {
+                navController.addOnDestinationChangedListener { _, destination, _ ->
+                    appBar.root.isVisible = destination.id != R.id.viewerFragment
+                    bottomNav.isVisible = destination.id != R.id.viewerFragment
 
-          val title = when (destination.id) {
-            R.id.homeFragment -> getString(R.string.videos)
-            R.id.liveScoreFragment -> getString(R.string.livescore)
-            R.id.worldCupFragment -> getString(R.string.world_cup)
-            else -> ""
-          }
+                    val title = when (destination.id) {
+                        R.id.homeFragment -> getString(R.string.videos)
+                        R.id.liveScoreFragment -> getString(R.string.livescore)
+                        R.id.worldCupFragment -> getString(R.string.world_cup)
+                        else -> ""
+                    }
 
-          binding.appBar.toolbar.title = title
+                    binding.appBar.toolbar.title = title
+                }
+            }
         }
-      }
     }
-  }
 
-  private fun showInformationDialog() {
-    MaterialAlertDialogBuilder(this)
-      .setTitle(getString(R.string.information))
-      .setMessage(getText(R.string.data_provider))
-      .setPositiveButton(getString(R.string.go_to_scorebat)) { dialog, _ ->
-        dialog.dismiss()
-        openLink(this, getString(R.string.scorebat_link))
-      }
-      .show()
-  }
-
-  fun setupInsetter() {
-    binding.root.applyInsetter {
-      type(statusBars = true, navigationBars = true) {
-        margin()
-      }
+    private fun showInformationDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.information))
+            .setMessage(getText(R.string.data_provider))
+            .setPositiveButton(getString(R.string.go_to_scorebat)) { dialog, _ ->
+                dialog.dismiss()
+                openLink(this, getString(R.string.scorebat_link))
+            }
+            .show()
     }
-  }
+
+    fun setupInsetter() {
+        binding.root.applyInsetter {
+            type(statusBars = true, navigationBars = true) {
+                margin()
+            }
+        }
+    }
 }

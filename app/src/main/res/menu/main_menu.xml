@@ -14,7 +14,7 @@
         <item
             android:id="@+id/worldCupFragment"
             android:icon="@drawable/ic_baseline_sports_soccer_24"
-            android:title="@string/world_cup"/>
+            android:title="@string/world_cup" />
 
     </group>
 </menu>

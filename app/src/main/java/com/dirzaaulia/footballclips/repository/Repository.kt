@@ -9,22 +9,22 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 class Repository @Inject constructor(
-  private val scoreBatService: ScoreBatService
+    private val scoreBatService: ScoreBatService
 ) {
 
-  @WorkerThread
-  fun getClips() = flow {
-    emit(ResponseResult.Loading)
-    try {
-      val response = scoreBatService.getClips()
-      response.body()?.response?.let {
-        val clipStates = it.map { clip -> clip.toClipState() }
-        emit(ResponseResult.Success(clipStates))
-      } ?: run {
-        throw HttpException(response)
-      }
-    } catch (throwable: Throwable) {
-      emit(ResponseResult.Error(throwable))
+    @WorkerThread
+    fun getClips() = flow {
+        emit(ResponseResult.Loading)
+        try {
+            val response = scoreBatService.getClips()
+            response.body()?.response?.let {
+                val clipStates = it.map { clip -> clip.toClipState() }
+                emit(ResponseResult.Success(clipStates))
+            } ?: run {
+                throw HttpException(response)
+            }
+        } catch (throwable: Throwable) {
+            emit(ResponseResult.Error(throwable))
+        }
     }
-  }
 }

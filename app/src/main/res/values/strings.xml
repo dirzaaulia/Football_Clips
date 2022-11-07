@@ -1,12 +1,12 @@
 <resources>
-  <string name="app_name">Football Clips</string>
-  <string name="information">Information</string>
-  <string name="data_provider">All football clips data is provided by <u>ScoreBat</u></string>
-  <string name="go_to_scorebat">Go To ScoreBat</string>
-  <string name="scorebat_link">https://scorebat.com</string>
-  <string name="livescore">Live Score</string>
-  <string name="clips">Clips</string>
-  <string name="videos">Videos</string>
-  <string name="about">About</string>
+    <string name="app_name">Football Clips</string>
+    <string name="information">Information</string>
+    <string name="data_provider">All football clips data is provided by <u>ScoreBat</u></string>
+    <string name="go_to_scorebat">Go To ScoreBat</string>
+    <string name="scorebat_link">https://scorebat.com</string>
+    <string name="livescore">Live Score</string>
+    <string name="clips">Clips</string>
+    <string name="videos">Videos</string>
+    <string name="about">About</string>
     <string name="world_cup">World Cup</string>
 </resources>

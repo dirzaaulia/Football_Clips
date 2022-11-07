@@ -17,25 +17,25 @@ import javax.inject.Singleton
 @Module
 class NetworkModule {
 
-  @Singleton
-  @Provides
-  fun provideScoreBatInterceptorClient(
-    @ApplicationContext context: Context
-  ): OkHttpClient {
-    return OkHttpClient.Builder()
-      .addInterceptor(LoggingInterceptor.create())
-      .addInterceptor(ChuckerInterceptor.create(context))
-      .callTimeout(120,TimeUnit.SECONDS)
-      .writeTimeout(120, TimeUnit.SECONDS)
-      .readTimeout(120, TimeUnit.SECONDS)
-      .build()
-  }
+    @Singleton
+    @Provides
+    fun provideScoreBatInterceptorClient(
+        @ApplicationContext context: Context
+    ): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(LoggingInterceptor.create())
+            .addInterceptor(ChuckerInterceptor.create(context))
+            .callTimeout(120, TimeUnit.SECONDS)
+            .writeTimeout(120, TimeUnit.SECONDS)
+            .readTimeout(120, TimeUnit.SECONDS)
+            .build()
+    }
 
-  @Singleton
-  @Provides
-  fun provideScoreBatService(
-    client: OkHttpClient
-  ): ScoreBatService {
-    return ScoreBatService.create(client)
-  }
+    @Singleton
+    @Provides
+    fun provideScoreBatService(
+        client: OkHttpClient
+    ): ScoreBatService {
+        return ScoreBatService.create(client)
+    }
 }

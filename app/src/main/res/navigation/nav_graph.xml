@@ -5,32 +5,32 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
-  <fragment
-      android:id="@+id/homeFragment"
-      android:name="com.dirzaaulia.footballclips.ui.home.HomeFragment"
-      tools:layout="@layout/fragment_home" >
-    <action
-        android:id="@+id/action_homeFragment_to_viewerFragment"
-        app:destination="@id/viewerFragment" />
-  </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dirzaaulia.footballclips.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_viewerFragment"
+            app:destination="@id/viewerFragment" />
+    </fragment>
 
-  <fragment
-      android:id="@+id/liveScoreFragment"
-      android:name="com.dirzaaulia.footballclips.ui.livescore.LiveScoreFragment"
-      tools:layout="@layout/fragment_viewer"/>
+    <fragment
+        android:id="@+id/liveScoreFragment"
+        android:name="com.dirzaaulia.footballclips.ui.livescore.LiveScoreFragment"
+        tools:layout="@layout/fragment_viewer" />
 
-  <fragment
-      android:id="@+id/worldCupFragment"
-      android:name="com.dirzaaulia.footballclips.ui.world_cup.WorldCupFragment"
-      tools:layout="@layout/fragment_viewer"/>
+    <fragment
+        android:id="@+id/worldCupFragment"
+        android:name="com.dirzaaulia.footballclips.ui.world_cup.WorldCupFragment"
+        tools:layout="@layout/fragment_viewer" />
 
-  <fragment
-      android:id="@+id/viewerFragment"
-      android:name="com.dirzaaulia.footballclips.ui.viewer.ViewerFragment"
-      tools:layout="@layout/fragment_viewer">
+    <fragment
+        android:id="@+id/viewerFragment"
+        android:name="com.dirzaaulia.footballclips.ui.viewer.ViewerFragment"
+        tools:layout="@layout/fragment_viewer">
 
-    <argument
-        android:name="url"
-        app:argType="string" />
-  </fragment>
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
 </navigation>

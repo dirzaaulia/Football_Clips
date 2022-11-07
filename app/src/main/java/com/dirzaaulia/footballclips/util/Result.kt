@@ -11,35 +11,35 @@ val ResponseResult<*>?.isError get() = this != null && this is ResponseResult.Er
 val ResponseResult<*>?.isLoading get() = this != null && this is ResponseResult.Loading
 
 inline infix fun <T, Value : Any> ResponseResult<T>?.runSucceeded(predicate: (data: T) -> Value): Value? {
-  if (this != null && this.isSucceeded && this is ResponseResult.Success && this.data != null) {
-    return predicate.invoke(this.data)
-  }
-  return null
+    if (this != null && this.isSucceeded && this is ResponseResult.Success && this.data != null) {
+        return predicate.invoke(this.data)
+    }
+    return null
 }
 
 inline infix fun <T> ResponseResult<T>.success(predicate: (data: T) -> Unit): ResponseResult<T> {
-  if (this is ResponseResult.Success && this.data != null) {
-    predicate.invoke(this.data)
-  }
-  return this
+    if (this is ResponseResult.Success && this.data != null) {
+        predicate.invoke(this.data)
+    }
+    return this
 }
 
 inline infix fun <T> ResponseResult<T>.error(predicate: (data: Throwable) -> Unit) {
-  if (this is ResponseResult.Error) {
-    predicate.invoke(this.throwable)
-  }
+    if (this is ResponseResult.Error) {
+        predicate.invoke(this.throwable)
+    }
 }
 
 inline infix fun <T, Value : Any> ResponseResult<T>.pagingSucceeded(
-  predicate: (data: T) -> PagingSource.LoadResult<Int, Value>
+    predicate: (data: T) -> PagingSource.LoadResult<Int, Value>
 ): PagingSource.LoadResult<Int, Value> {
-  return if (this is ResponseResult.Success && this.data != null) {
-    predicate.invoke(this.data)
-  } else {
-    if (this is ResponseResult.Error) {
-      PagingSource.LoadResult.Error(this.throwable)
+    return if (this is ResponseResult.Success && this.data != null) {
+        predicate.invoke(this.data)
     } else {
-      PagingSource.LoadResult.Error(NotFoundException())
+        if (this is ResponseResult.Error) {
+            PagingSource.LoadResult.Error(this.throwable)
+        } else {
+            PagingSource.LoadResult.Error(NotFoundException())
+        }
     }
-  }
 }
