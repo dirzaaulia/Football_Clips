@@ -5,22 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.viewer.ViewerFragment"
-    >
-
-  <include
-      android:id="@+id/toolbar"
-      layout="@layout/view_home_toolbar"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:layout_constraintTop_toTopOf="parent"/>
+    tools:context=".ui.viewer.ViewerFragment">
 
   <com.google.android.material.progressindicator.LinearProgressIndicator
       android:id="@+id/progress_bar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:indeterminate="true"
       app:trackCornerRadius="8dp"
-      app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+      app:layout_constraintTop_toTopOf="parent"/>
 
   <WebView
       android:id="@+id/web_view"

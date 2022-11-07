@@ -1,38 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="red_200">#EF9A9A</color>
-  <color name="red_400">#EF5350</color>
-  <color name="red_700">#D32F2F</color>
+    <color name="md_theme_light_primary">#006783</color>
+  <color name="md_theme_light_onPrimary">#FFFFFF</color>
+  <color name="md_theme_light_primaryContainer">#BCE9FF</color>
+  <color name="md_theme_light_onPrimaryContainer">#001F2A</color>
+  <color name="md_theme_light_secondary">#006497</color>
+  <color name="md_theme_light_onSecondary">#FFFFFF</color>
+  <color name="md_theme_light_secondaryContainer">#CCE5FF</color>
+  <color name="md_theme_light_onSecondaryContainer">#001E31</color>
+  <color name="md_theme_light_tertiary">#4559A9</color>
+  <color name="md_theme_light_onTertiary">#FFFFFF</color>
+  <color name="md_theme_light_tertiaryContainer">#DDE1FF</color>
+  <color name="md_theme_light_onTertiaryContainer">#001354</color>
+  <color name="md_theme_light_error">#BA1A1A</color>
+  <color name="md_theme_light_errorContainer">#FFDAD6</color>
+  <color name="md_theme_light_onError">#FFFFFF</color>
+  <color name="md_theme_light_onErrorContainer">#410002</color>
+  <color name="md_theme_light_background">#FBFCFE</color>
+  <color name="md_theme_light_onBackground">#191C1E</color>
+  <color name="md_theme_light_surface">#FBFCFE</color>
+  <color name="md_theme_light_onSurface">#191C1E</color>
+  <color name="md_theme_light_surfaceVariant">#DCE4E9</color>
+  <color name="md_theme_light_onSurfaceVariant">#40484C</color>
+  <color name="md_theme_light_outline">#70787D</color>
+  <color name="md_theme_light_inverseOnSurface">#EFF1F3</color>
+  <color name="md_theme_light_inverseSurface">#2E3132</color>
+  <color name="md_theme_light_inversePrimary">#63D3FF</color>
+    <color name="md_theme_dark_primary">#63D3FF</color>
+  <color name="md_theme_dark_onPrimary">#003545</color>
+  <color name="md_theme_dark_primaryContainer">#004D63</color>
+  <color name="md_theme_dark_onPrimaryContainer">#BCE9FF</color>
+  <color name="md_theme_dark_secondary">#92CCFF</color>
+  <color name="md_theme_dark_onSecondary">#003351</color>
+  <color name="md_theme_dark_secondaryContainer">#004B73</color>
+  <color name="md_theme_dark_onSecondaryContainer">#CCE5FF</color>
+  <color name="md_theme_dark_tertiary">#B8C4FF</color>
+  <color name="md_theme_dark_onTertiary">#102878</color>
+  <color name="md_theme_dark_tertiaryContainer">#2C4090</color>
+  <color name="md_theme_dark_onTertiaryContainer">#DDE1FF</color>
+  <color name="md_theme_dark_error">#FFB4AB</color>
+  <color name="md_theme_dark_errorContainer">#93000A</color>
+  <color name="md_theme_dark_onError">#690005</color>
+  <color name="md_theme_dark_onErrorContainer">#FFDAD6</color>
+  <color name="md_theme_dark_background">#191C1E</color>
+  <color name="md_theme_dark_onBackground">#E1E2E4</color>
+  <color name="md_theme_dark_surface">#191C1E</color>
+  <color name="md_theme_dark_onSurface">#E1E2E4</color>
+  <color name="md_theme_dark_surfaceVariant">#40484C</color>
+  <color name="md_theme_dark_onSurfaceVariant">#C0C8CD</color>
+  <color name="md_theme_dark_outline">#8A9297</color>
+  <color name="md_theme_dark_inverseOnSurface">#191C1E</color>
+  <color name="md_theme_dark_inverseSurface">#E1E2E4</color>
+  <color name="md_theme_dark_inversePrimary">#006783</color>
 
-  <color name="light_blue_700">#0288D1</color>
-
-  <color name="green_700">#388E3C</color>
-
-  <color name="blue_grey_200">#B0BEC5</color>
-  <color name="blue_grey_300">#90A4AE</color>
-  <color name="blue_grey_400">#78909C</color>
-
-  <color name="blue_700">#1976D2</color>
-
-  <color name="grey_50">#FAFAFA</color>
-  <color name="grey_300">#E0E0E0</color>
-  <color name="grey_400">#BDBDBD</color>
-  <color name="grey_500">#9E9E9E</color>
-  <color name="grey_600">#757575</color>
-  <color name="grey_700">#616161</color>
-  <color name="grey_800">#424242</color>
-  <color name="grey_50_alpha_060">#99FAFAFA</color>
-
-  <color name="black">#000000</color>
-  <color name="black_800">#121212</color>
-  <color name="black_alpha_020">#33000000</color>
-  <color name="black_alpha_087">#de000000</color>
-  <color name="black_alpha_060">#99000000</color>
-
-  <color name="white">#FFFFFF</color>
-  <color name="white_alpha_060">#99ffffff</color>
-
-  <color name="scrimBackground">@color/white</color>
-
-  <color name="nav_bar">@color/black_alpha_020</color>
 </resources>

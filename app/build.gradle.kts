@@ -84,10 +84,12 @@ dependencies {
     implementation(Dependencies.Coil.implementation)
     implementation(Dependencies.Coroutines.implementation)
     implementation(Dependencies.Hilt.implementation)
+    implementation(Dependencies.Insetter.implementation)
     implementation(Dependencies.Kotlin.implementation)
     implementation(Dependencies.Material.implementation)
     implementation(Dependencies.Paging.implementation)
     implementation(Dependencies.Service.implementation)
+    implementation(Dependencies.Shimmer.implementation)
 
     kapt(Dependencies.Hilt.kapt)
 

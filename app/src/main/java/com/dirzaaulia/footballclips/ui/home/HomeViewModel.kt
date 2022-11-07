@@ -2,7 +2,8 @@ package com.dirzaaulia.footballclips.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dirzaaulia.footballclips.data.scorebat.model.Clips
+import com.dirzaaulia.footballclips.data.model.Clip
+import com.dirzaaulia.footballclips.data.model.ClipState
 import com.dirzaaulia.footballclips.repository.Repository
 import com.dirzaaulia.footballclips.util.ResponseResult
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +18,7 @@ class HomeViewModel @Inject constructor(
   private val repository: Repository
 ): ViewModel() {
 
-  private val _clips: MutableStateFlow<ResponseResult<List<Clips>?>> =
+  private val _clips: MutableStateFlow<ResponseResult<List<ClipState>?>> =
     MutableStateFlow(ResponseResult.Success(null))
   val clips = _clips.asStateFlow()
 
@@ -27,9 +28,7 @@ class HomeViewModel @Inject constructor(
 
   fun getClips()  {
     repository.getClips()
-      .onEach {
-        _clips.value = it
-      }
+      .onEach { _clips.value = it }
       .launchIn(viewModelScope)
   }
 

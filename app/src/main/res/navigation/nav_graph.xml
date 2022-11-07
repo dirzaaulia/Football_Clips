@@ -16,7 +16,13 @@
 
   <fragment
       android:id="@+id/liveScoreFragment"
-      android:name="com.dirzaaulia.footballclips.ui.livescore.LiveScoreFragment" />
+      android:name="com.dirzaaulia.footballclips.ui.livescore.LiveScoreFragment"
+      tools:layout="@layout/fragment_viewer"/>
+
+  <fragment
+      android:id="@+id/worldCupFragment"
+      android:name="com.dirzaaulia.footballclips.ui.world_cup.WorldCupFragment"
+      tools:layout="@layout/fragment_viewer"/>
 
   <fragment
       android:id="@+id/viewerFragment"

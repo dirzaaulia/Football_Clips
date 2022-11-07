@@ -1,4 +1,5 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.kotlin.dsl.accessors.runtime.addConfiguredDependencyTo
 
 object Dependencies {
 
@@ -92,6 +93,14 @@ object Dependencies {
     }
   }
 
+  object Insetter {
+    private const val insetter = "dev.chrisbanes.insetter:insetter:${Version.insetter}"
+
+    val implementation = arrayListOf<String>().apply {
+      add(insetter)
+    }
+  }
+
   object JUnit {
      private const val junit = "junit:junit:${Version.jUnit}"
 
@@ -135,7 +144,14 @@ object Dependencies {
       add(logging)
       add(converterMoshi)
     }
+  }
 
+  object Shimmer {
+    private const val shimmer = "com.facebook.shimmer:shimmer:${Version.shimmer}"
+
+    val implementation = arrayListOf<String>().apply {
+      add(shimmer)
+    }
   }
 }
 

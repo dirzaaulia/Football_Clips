@@ -9,7 +9,7 @@ import java.util.*
 
 fun formatDateTime(value: String?): String {
   return if (value.isNullOrBlank()) {
-    "No Date"
+    "Unknown Date"
   } else {
     val dateParser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.getDefault()).apply {
       timeZone = TimeZone.getTimeZone("UTC")

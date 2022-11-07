@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebChromeClient
 import android.webkit.WebView
-import androidx.core.view.isVisible
+import androidx.core.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.dirzaaulia.footballclips.databinding.FragmentViewerBinding
+import com.dirzaaulia.footballclips.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
+import dev.chrisbanes.insetter.applyInsetter
 
 @AndroidEntryPoint
 class ViewerFragment: Fragment() {
@@ -44,7 +46,6 @@ class ViewerFragment: Fragment() {
   @SuppressLint("SetJavaScriptEnabled")
   private fun setWebView(url: String) {
     binding.apply {
-      toolbar.root.isVisible = false
       webView.apply {
         settings.javaScriptEnabled = true
         settings.loadWithOverviewMode = true

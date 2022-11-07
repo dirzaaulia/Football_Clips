@@ -1,6 +1,6 @@
 package com.dirzaaulia.footballclips.network
 
-import com.dirzaaulia.footballclips.data.scorebat.response.ClipsResponse
+import com.dirzaaulia.footballclips.data.response.ClipsResponse
 import com.dirzaaulia.footballclips.util.SCOREBAT_BASE_URL
 import com.dirzaaulia.footballclips.util.SCOREBAT_TOKEN
 import com.squareup.moshi.Moshi

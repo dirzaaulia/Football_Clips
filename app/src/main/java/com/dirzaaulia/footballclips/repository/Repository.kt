@@ -1,6 +1,7 @@
 package com.dirzaaulia.footballclips.repository
 
 import androidx.annotation.WorkerThread
+import com.dirzaaulia.footballclips.data.model.Clip.Companion.toClipState
 import com.dirzaaulia.footballclips.network.ScoreBatService
 import com.dirzaaulia.footballclips.util.ResponseResult
 import kotlinx.coroutines.flow.flow
@@ -17,7 +18,8 @@ class Repository @Inject constructor(
     try {
       val response = scoreBatService.getClips()
       response.body()?.response?.let {
-        emit(ResponseResult.Success(it))
+        val clipStates = it.map { clip -> clip.toClipState() }
+        emit(ResponseResult.Success(clipStates))
       } ?: run {
         throw HttpException(response)
       }
