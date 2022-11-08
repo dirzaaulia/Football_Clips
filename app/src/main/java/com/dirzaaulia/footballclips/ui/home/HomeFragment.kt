@@ -6,19 +6,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dirzaaulia.footballclips.data.model.Clip
 import com.dirzaaulia.footballclips.data.model.ClipState
 import com.dirzaaulia.footballclips.databinding.FragmentHomeBinding
 import com.dirzaaulia.footballclips.ui.home.adapter.ClipAdapter
 import com.dirzaaulia.footballclips.ui.main.MainActivity
 import com.dirzaaulia.footballclips.util.*
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -47,8 +49,37 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setupSwipeRefresh()
+        setupRecyclerView()
+        setupFloatingActionButton()
         setupAdapter()
         subscribeClips()
+    }
+
+    private fun setupSwipeRefresh() {
+        binding.swipeRefresh.setOnRefreshListener { viewModel.getClips() }
+    }
+
+    private fun setupRecyclerView() {
+        binding.recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+                if (firstVisibleItemPosition > 0) {
+                    binding.fab.show()
+                } else {
+                    binding.fab.hide()
+                }
+                super.onScrolled(recyclerView, dx, dy)
+            }
+        })
+    }
+
+
+    private fun setupFloatingActionButton() {
+        binding.fab.setOnClickListener {
+            binding.recyclerView.smoothScrollToPosition(0)
+        }
     }
 
     private fun setupAdapter() {
@@ -59,6 +90,7 @@ class HomeFragment : Fragment() {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.clips.collect { state ->
+                    setUIFromState(state)
                     when {
                         state.isLoading -> updateList(ClipState.getClipStatesPlaceholder())
                         state.isSucceeded -> {
@@ -68,20 +100,32 @@ class HomeFragment : Fragment() {
                         }
                         state.isError -> {
                             state.error {
-                                Snackbar.make(
-                                    binding.root,
-                                    it.message.toString(),
-                                    Snackbar.LENGTH_INDEFINITE
+                                showErrorView(
+                                    it.message
+                                        ?: "Error occured when fetching data from server. Please try again"
                                 )
-                                    .setAction("Retry") {
-                                        viewModel.getClips()
-                                    }
-                                    .show()
                             }
                         }
                     }
                 }
             }
+        }
+    }
+
+    private fun setUIFromState(state: ResponseResult<List<ClipState>?>) {
+        binding.apply {
+            swipeRefresh.apply {
+                isRefreshing = false
+                isVisible = !state.isError
+            }
+            viewCommonError.root.isVisible = state.isError
+        }
+    }
+
+    private fun showErrorView(errorMessage: String) {
+        binding.viewCommonError.apply {
+            title.text = errorMessage
+            button.setOnClickListener { viewModel.getClips() }
         }
     }
 

@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.dirzaaulia.footballclips.R
 import com.dirzaaulia.footballclips.databinding.ActivityMainBinding
 import com.dirzaaulia.footballclips.util.openLink
+import com.google.android.material.color.DynamicColors
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import dev.chrisbanes.insetter.applyInsetter
@@ -22,9 +23,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navHostFragment: NavHostFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        preOnCreateSetup()
+        super.onCreate(savedInstanceState)
+        postOnCreateSetup()
+    }
+
+    private fun preOnCreateSetup() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         installSplashScreen()
-        super.onCreate(savedInstanceState)
+        DynamicColors.applyToActivityIfAvailable(this)
+    }
+
+    private fun postOnCreateSetup() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupAppBar()
