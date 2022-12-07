@@ -19,8 +19,12 @@ import com.dirzaaulia.footballclips.data.model.Clip
 import com.dirzaaulia.footballclips.data.model.ClipState
 import com.dirzaaulia.footballclips.databinding.FragmentHomeBinding
 import com.dirzaaulia.footballclips.ui.home.adapter.ClipAdapter
-import com.dirzaaulia.footballclips.ui.main.MainActivity
-import com.dirzaaulia.footballclips.util.*
+import com.dirzaaulia.footballclips.util.ResponseResult
+import com.dirzaaulia.footballclips.util.error
+import com.dirzaaulia.footballclips.util.isError
+import com.dirzaaulia.footballclips.util.isLoading
+import com.dirzaaulia.footballclips.util.isSucceeded
+import com.dirzaaulia.footballclips.util.success
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -41,7 +45,6 @@ class HomeFragment : Fragment() {
     ): View {
         activity?.let {
             it.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-            (it as MainActivity).setupInsetter()
         }
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -145,6 +148,4 @@ class HomeFragment : Fragment() {
             }
         }
     }
-
-
 }

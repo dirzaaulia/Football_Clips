@@ -13,7 +13,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.dirzaaulia.footballclips.databinding.FragmentViewerBinding
-import com.dirzaaulia.footballclips.ui.main.MainActivity
 
 
 class WorldCupFragment : Fragment() {
@@ -30,8 +29,6 @@ class WorldCupFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        (activity as MainActivity).setupInsetter()
-
         binding = FragmentViewerBinding.inflate(inflater, container, false)
         return binding.root
     }

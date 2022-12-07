@@ -29,16 +29,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun preOnCreateSetup() {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
         installSplashScreen()
         DynamicColors.applyToActivityIfAvailable(this)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
     }
 
     private fun postOnCreateSetup() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setupInsetter()
         setupAppBar()
         setupBottomNavigation()
+    }
+
+    private fun setupInsetter() {
+        binding.root.applyInsetter {
+            type(statusBars = true) {
+                padding(animated = true)
+            }
+        }
     }
 
     private fun setupAppBar() {
@@ -88,13 +97,5 @@ class MainActivity : AppCompatActivity() {
                 openLink(this, getString(R.string.scorebat_link))
             }
             .show()
-    }
-
-    fun setupInsetter() {
-        binding.root.applyInsetter {
-            type(statusBars = true, navigationBars = true) {
-                margin()
-            }
-        }
     }
 }

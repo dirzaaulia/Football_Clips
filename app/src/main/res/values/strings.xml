@@ -10,4 +10,5 @@
     <string name="about">About</string>
     <string name="world_cup">World Cup</string>
     <string name="retry">Retry</string>
+    <string name="search_here">Search Here</string>
 </resources>

@@ -31,8 +31,6 @@ class LiveScoreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentViewerBinding.inflate(inflater, container, false)
-        (activity as MainActivity).setupInsetter()
-
         return binding.root
     }
 
