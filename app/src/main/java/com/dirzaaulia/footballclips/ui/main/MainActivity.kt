@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                     val title = when (destination.id) {
                         R.id.homeFragment -> getString(R.string.videos)
                         R.id.liveScoreFragment -> getString(R.string.livescore)
-                        R.id.worldCupFragment -> getString(R.string.world_cup)
+                        R.id.eventFragment -> getString(R.string.euro2024)
                         else -> ""
                     }
 

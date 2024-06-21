@@ -20,8 +20,8 @@
         tools:layout="@layout/fragment_viewer" />
 
     <fragment
-        android:id="@+id/worldCupFragment"
-        android:name="com.dirzaaulia.footballclips.ui.world_cup.WorldCupFragment"
+        android:id="@+id/eventFragment"
+        android:name="com.dirzaaulia.footballclips.ui.event.EventFragment"
         tools:layout="@layout/fragment_viewer" />
 
     <fragment

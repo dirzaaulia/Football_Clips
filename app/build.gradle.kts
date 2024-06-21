@@ -11,10 +11,14 @@ plugins {
 android {
     signingConfigs {
         create("release") {
-            storeFile = file("D:\\Android Studio\\keystore.jks")
-            storePassword = AppConfig.KeyStore.password
-            keyAlias = AppConfig.KeyStore.alias
-            keyPassword = AppConfig.KeyStore.password
+            storeFile = file("/Users/aleph/Downloads/keystore.jks")
+            storePassword = "stravinsky9"
+            keyAlias = "keydirza"
+            keyPassword = "stravinsky9"
+            //            storeFile = file("D:\\Android Studio\\keystore.jks")
+//            storePassword = AppConfig.KeyStore.password
+//            keyAlias = AppConfig.KeyStore.alias
+//            keyPassword = AppConfig.KeyStore.password
         }
     }
 

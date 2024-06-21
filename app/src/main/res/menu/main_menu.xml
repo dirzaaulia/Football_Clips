@@ -12,9 +12,9 @@
             android:title="@string/livescore" />
 
         <item
-            android:id="@+id/worldCupFragment"
+            android:id="@+id/eventFragment"
             android:icon="@drawable/ic_baseline_sports_soccer_24"
-            android:title="@string/world_cup" />
+            android:title="@string/euro2024" />
 
     </group>
 </menu>

@@ -1,4 +1,4 @@
-package com.dirzaaulia.footballclips.ui.world_cup
+package com.dirzaaulia.footballclips.ui.event
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
@@ -15,7 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.dirzaaulia.footballclips.databinding.FragmentViewerBinding
 
 
-class WorldCupFragment : Fragment() {
+class EventFragment : Fragment() {
 
     private lateinit var binding: FragmentViewerBinding
 
@@ -45,7 +45,7 @@ class WorldCupFragment : Fragment() {
                     if (binding.webView.canGoBack()) {
                         binding.webView.goBack()
                     } else {
-                        NavHostFragment.findNavController(this@WorldCupFragment).navigateUp()
+                        NavHostFragment.findNavController(this@EventFragment).navigateUp()
                     }
                 }
             }
@@ -74,7 +74,7 @@ class WorldCupFragment : Fragment() {
                 }
 
                 val url =
-                    "<iframe src=\"https://www.scorebat.com/embed/league/fifa-world-cup/?token=MjExMDVfMTY2Nzc5MjA3OV82N2IxNTE5Njg1MTI4MTRiZjRhYzNlOGIwMDBkOGVjODBmZWNhZDRj\" frameborder=\"0\" width=\"600\" height=\"760\" allowfullscreen allow='autoplay; fullscreen' style=\"width:100%;height:760px;overflow:hidden;display:block;\" class=\"_scorebatEmbeddedPlayer_\"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>"
+                    "<iframe src=\"https://www.scorebat.com/embed/league/euro2024/?token=MjExMDVfMTY2Nzc5MjA3OV82N2IxNTE5Njg1MTI4MTRiZjRhYzNlOGIwMDBkOGVjODBmZWNhZDRj\" frameborder=\"0\" width=\"600\" height=\"760\" allowfullscreen allow='autoplay; fullscreen' style=\"width:100%;height:760px;overflow:hidden;display:block;\" class=\"_scorebatEmbeddedPlayer_\"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>"
                 val replacedUrl = url.replace("position:relative;padding-bottom:56.250%;", "")
                 var data =
                     "<html><meta name=\"viewport\" content='width=device-width, height=device-height, initial-scale=1.0,text/html,charset=utf-8'>"
