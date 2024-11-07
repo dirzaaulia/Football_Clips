@@ -42,8 +42,8 @@ object Dependencies {
         }
 
         object Test {
-            private const val core = "androidx.test:core:${Version.jUnit}"
-            private const val rules = "androidx.test:rules:${Version.jUnit}"
+            private const val core = "androidx.test:core:${Version.test}"
+            private const val rules = "androidx.test:rules:${Version.test}"
             private const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
 
             val androidTestImplementation = arrayListOf<String>().apply {
@@ -141,6 +141,14 @@ object Dependencies {
             add(runtime)
         }
     }
+
+//    object PlayServices {
+//        private const val ads = "com.google.android.gms:play-services-ads:${Version.playServicesAds}"
+//
+//        val implementation = arrayListOf<String>().apply {
+//            add(ads)
+//        }
+//    }
 
     object Service {
 

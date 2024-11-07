@@ -9,16 +9,15 @@ plugins {
 }
 
 android {
+
+    namespace = "com.dirzaaulia.footballclips"
+
     signingConfigs {
         create("release") {
-            storeFile = file("/Users/aleph/Downloads/keystore.jks")
-            storePassword = "stravinsky9"
-            keyAlias = "keydirza"
-            keyPassword = "stravinsky9"
-            //            storeFile = file("D:\\Android Studio\\keystore.jks")
-//            storePassword = AppConfig.KeyStore.password
-//            keyAlias = AppConfig.KeyStore.alias
-//            keyPassword = AppConfig.KeyStore.password
+            storeFile = file("D:\\Keystore\\keystore.jks")
+            storePassword = AppConfig.KeyStore.password
+            keyAlias = AppConfig.KeyStore.alias
+            keyPassword = AppConfig.KeyStore.password
         }
     }
 
@@ -54,12 +53,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 
     buildFeatures {
@@ -73,7 +72,7 @@ android {
         shaders = false
     }
 
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -92,6 +91,7 @@ dependencies {
     implementation(Dependencies.Kotlin.implementation)
     implementation(Dependencies.Material.implementation)
     implementation(Dependencies.Paging.implementation)
+//    implementation(Dependencies.PlayServices.implementation)
     implementation(Dependencies.Service.implementation)
     implementation(Dependencies.Shimmer.implementation)
 
