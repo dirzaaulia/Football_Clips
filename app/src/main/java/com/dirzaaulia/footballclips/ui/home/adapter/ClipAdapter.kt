@@ -1,6 +1,7 @@
 package com.dirzaaulia.footballclips.ui.home.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -11,9 +12,11 @@ import coil.load
 import com.dirzaaulia.footballclips.R
 import com.dirzaaulia.footballclips.data.model.Clip
 import com.dirzaaulia.footballclips.data.model.ClipState
+import com.dirzaaulia.footballclips.databinding.BannerAdViewBinding
 import com.dirzaaulia.footballclips.databinding.ItemClipsBinding
 import com.dirzaaulia.footballclips.databinding.ShimmerItemClipsBinding
 import com.dirzaaulia.footballclips.util.formatDateTime
+import com.google.android.gms.ads.AdView
 
 typealias OnClipsClicked = (Clip) -> Unit
 
@@ -23,7 +26,9 @@ class ClipAdapter(
 
     override fun getItemViewType(position: Int): Int {
         val isPlaceholder = currentList[position].isPlaceholder
-        return if (isPlaceholder) PLACEHOLDER else DATA
+        return if (isPlaceholder) PLACEHOLDER else {
+            if (position % 5 == 0) AD else DATA
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,6 +36,14 @@ class ClipAdapter(
             PLACEHOLDER -> {
                 ViewHolder.PlaceholderViewHolder(
                     ShimmerItemClipsBinding.inflate(
+                        LayoutInflater.from(parent.context), parent, false
+                    )
+                )
+            }
+
+            AD -> {
+                ViewHolder.AdViewHolder(
+                    BannerAdViewBinding.inflate(
                         LayoutInflater.from(parent.context), parent, false
                     )
                 )
@@ -52,8 +65,17 @@ class ClipAdapter(
         when (holder) {
             is ViewHolder.PlaceholderViewHolder -> holder.bindPlaceholder()
             is ViewHolder.DataViewHolder -> {
+                if (currentList.isNotEmpty()) {
+                    val item = getItem(position)
+                    item?.let {
+                        val item = it
+                        holder.bind(item)
+                    }
+                }
+            }
+            is ViewHolder.AdViewHolder -> {
                 val item = getItem(position)
-                item?.let { holder.bind(item) }
+                holder.bindAd(item, position)
             }
         }
     }
@@ -64,6 +86,26 @@ class ClipAdapter(
             binding: ShimmerItemClipsBinding
         ) : ViewHolder(binding) {
             fun bindPlaceholder() {}
+        }
+
+        class AdViewHolder(
+            binding: BannerAdViewBinding
+        ) : ViewHolder(binding) {
+            fun bindAd(item: ClipState, position: Int) {
+                val bannerHolder = this
+                val adView = item.ad as AdView
+                val adCardView = this.itemView as ViewGroup
+
+                if (adCardView.childCount > 0) {
+                    adCardView.removeAllViews()
+                }
+
+                if (adView.parent != null) {
+                    (adView.parent as ViewGroup).removeView(adView)
+                }
+
+                adCardView.addView(adView)
+            }
         }
 
         class DataViewHolder(
@@ -85,7 +127,10 @@ class ClipAdapter(
                     }
 
                     date.text = formatDateTime(item.data.date)
-                    type.text = item.data.videos?.get(0)?.title ?: ""
+                    if (item.data.videos?.isNotEmpty() == true) {
+                        type.text = item.data.videos[0].title.orEmpty()
+                    }
+
                     competition.text = item.data.competition
                     title.text = item.data.title
 
@@ -100,6 +145,7 @@ class ClipAdapter(
     companion object {
         const val PLACEHOLDER = 0
         const val DATA = 1
+        const val AD = 2
     }
 }
 

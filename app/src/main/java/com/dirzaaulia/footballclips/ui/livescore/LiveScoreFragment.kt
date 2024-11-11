@@ -1,11 +1,14 @@
 package com.dirzaaulia.footballclips.ui.livescore
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowMetrics
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
@@ -14,11 +17,31 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.dirzaaulia.footballclips.databinding.FragmentViewerBinding
 import com.dirzaaulia.footballclips.ui.main.MainActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 
 
 class LiveScoreFragment : Fragment() {
 
     private lateinit var binding: FragmentViewerBinding
+
+    private var mAdView: AdView? = null
+
+    // Determine the screen width to use for the ad width.
+    private val adWidth: Int
+        get() {
+            val displayMetrics = resources.displayMetrics
+            val adWidthPixels =
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    val windowMetrics: WindowMetrics = requireActivity().windowManager.currentWindowMetrics
+                    windowMetrics.bounds.width()
+                } else {
+                    displayMetrics.widthPixels
+                }
+            val density = displayMetrics.density
+            return (adWidthPixels / density).toInt()
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +60,32 @@ class LiveScoreFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setWebView()
+
+        mAdView = activity?.let { AdView(it) }
+        binding.bannerAdView.addView(mAdView)
+        mAdView?.adUnitId = "ca-app-pub-6717632447198427/3722415366"
+        mAdView?.setAdSize(
+            AdSize.getInlineAdaptiveBannerAdSize(
+                adWidth,
+                100
+            )
+        )
+        mAdView?.loadAd(AdRequest.Builder().build())
+    }
+
+    override fun onResume() {
+        mAdView?.resume()
+        super.onResume()
+    }
+
+    override fun onPause() {
+        mAdView?.pause()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        mAdView?.destroy()
+        super.onDestroy()
     }
 
     private fun setupOnBackPressedDispatcher() {

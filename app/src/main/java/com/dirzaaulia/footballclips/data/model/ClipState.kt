@@ -1,8 +1,11 @@
 package com.dirzaaulia.footballclips.data.model
 
+import com.google.android.gms.ads.AdView
+
 data class ClipState(
     val isPlaceholder: Boolean = false,
-    val data: Clip
+    val data: Clip,
+    val ad: AdView? = null
 ) {
     companion object {
         fun getClipStatesPlaceholder(): List<ClipState> {

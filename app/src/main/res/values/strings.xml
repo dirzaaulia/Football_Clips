@@ -8,8 +8,12 @@
     <string name="clips">Clips</string>
     <string name="videos">Videos</string>
     <string name="about">About</string>
+    <string name="competition">Competition</string>
+    <string name="league">League</string>
     <string name="world_cup">World Cup</string>
     <string name="euro2024">Euro 2024</string>
     <string name="retry">Retry</string>
     <string name="search_here">Search Here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

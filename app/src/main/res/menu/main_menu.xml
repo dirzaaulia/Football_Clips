@@ -14,7 +14,7 @@
         <item
             android:id="@+id/eventFragment"
             android:icon="@drawable/ic_baseline_sports_soccer_24"
-            android:title="@string/euro2024" />
+            android:title="@string/league"/>
 
     </group>
 </menu>

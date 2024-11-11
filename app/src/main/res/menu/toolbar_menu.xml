@@ -7,5 +7,10 @@
             android:icon="@drawable/ic_baseline_info_24"
             android:title="@string/about"
             app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/menu_competition"
+            android:icon="@drawable/baseline_sports_soccer_24"
+            android:title="@string/about"
+            app:showAsAction="ifRoom" />
     </group>
 </menu>

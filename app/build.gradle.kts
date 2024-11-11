@@ -91,7 +91,7 @@ dependencies {
     implementation(Dependencies.Kotlin.implementation)
     implementation(Dependencies.Material.implementation)
     implementation(Dependencies.Paging.implementation)
-//    implementation(Dependencies.PlayServices.implementation)
+    implementation(Dependencies.PlayServices.implementation)
     implementation(Dependencies.Service.implementation)
     implementation(Dependencies.Shimmer.implementation)
 

@@ -4,6 +4,7 @@
     package="com.dirzaaulia.footballclips">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <application
         android:name=".App"
@@ -28,8 +29,8 @@
         </activity>
         <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <!-- AdMob app ID : ca-app-pub-6717632447198427~3285794491 -->
-<!--        <meta-data-->
-<!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
-<!--            android:value="ca-app-pub-3940256099942544~3347511713" />-->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
 </manifest>

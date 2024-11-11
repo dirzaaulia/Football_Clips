@@ -142,13 +142,13 @@ object Dependencies {
         }
     }
 
-//    object PlayServices {
-//        private const val ads = "com.google.android.gms:play-services-ads:${Version.playServicesAds}"
-//
-//        val implementation = arrayListOf<String>().apply {
-//            add(ads)
-//        }
-//    }
+    object PlayServices {
+        private const val ads = "com.google.android.gms:play-services-ads:${Version.playServicesAds}"
+
+        val implementation = arrayListOf<String>().apply {
+            add(ads)
+        }
+    }
 
     object Service {
 
