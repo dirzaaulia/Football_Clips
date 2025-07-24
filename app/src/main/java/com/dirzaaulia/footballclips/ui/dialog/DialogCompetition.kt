@@ -47,23 +47,58 @@ class DialogCompetition : DialogFragment() {
         binding.recyclerView.adapter = adapter
 
         val competition = listOf(
-            Pair("Premier League", "<iframe src=\"https://www.scorebat.com/embed/competition/england-premier-league/?token=MjExMDVfMTczMTI2NzE2NV83MDkzYWI3MWU4MjdlZTFhYTVmM2NjMGQ5NmY0ODE5NzA5OTczMGY2\" frameborder=\"0\" width=\"600\" height=\"760\" allowfullscreen allow='autoplay; fullscreen' style=\"width:100%;height:760px;overflow:hidden;display:block;\" class=\"_scorebatEmbeddedPlayer_\"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>"),
-            Pair("La Liga", "<iframe src=\"https://www.scorebat.com/embed/competition/spain-la-liga/?token=MjExMDVfMTczMTI2NzE2NV83MDkzYWI3MWU4MjdlZTFhYTVmM2NjMGQ5NmY0ODE5NzA5OTczMGY2\" frameborder=\"0\" width=\"600\" height=\"760\" allowfullscreen allow='autoplay; fullscreen' style=\"width:100%;height:760px;overflow:hidden;display:block;\" class=\"_scorebatEmbeddedPlayer_\"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>"),
-            Pair("Serie A", "<iframe src=\"https://www.scorebat.com/embed/competition/italy-serie-a/?token=MjExMDVfMTczMTI2NzE2NV83MDkzYWI3MWU4MjdlZTFhYTVmM2NjMGQ5NmY0ODE5NzA5OTczMGY2\" frameborder=\"0\" width=\"600\" height=\"760\" allowfullscreen allow='autoplay; fullscreen' style=\"width:100%;height:760px;overflow:hidden;display:block;\" class=\"_scorebatEmbeddedPlayer_\"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>"),
-            Pair("Bundesliga", "<iframe src=\"https://www.scorebat.com/embed/competition/germany-bundesliga/?token=MjExMDVfMTczMTI2NzE2NV83MDkzYWI3MWU4MjdlZTFhYTVmM2NjMGQ5NmY0ODE5NzA5OTczMGY2\" frameborder=\"0\" width=\"600\" height=\"760\" allowfullscreen allow='autoplay; fullscreen' style=\"width:100%;height:760px;overflow:hidden;display:block;\" class=\"_scorebatEmbeddedPlayer_\"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>"),
-            Pair("Ligue 1", "<iframe src=\"https://www.scorebat.com/embed/competition/france-ligue-1/?token=MjExMDVfMTczMTI2NzE2NV83MDkzYWI3MWU4MjdlZTFhYTVmM2NjMGQ5NmY0ODE5NzA5OTczMGY2\" frameborder=\"0\" width=\"600\" height=\"760\" allowfullscreen allow='autoplay; fullscreen' style=\"width:100%;height:760px;overflow:hidden;display:block;\" class=\"_scorebatEmbeddedPlayer_\"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>"),
+            Triple(
+                "Premier League",
+                "https://www.scorebat.com/embed/competition/england-premier-league/?token=MjExMDVfMTc1MzEwMzY0OV84ODVjNWE1Y2E3MTRlODBhYTAxOWU1YmE4ZDBmYjNiNWFmZDYyYjcx",
+                "https://www.scorebat.com/embed/videofeed/competition/england-premier-league/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5"
+            ),
+            Triple(
+                "La Liga",
+                "https://www.scorebat.com/embed/competition/spain-la-liga/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5",
+                "https://www.scorebat.com/embed/videofeed/competition/spain-la-liga/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5"
+            ),
+            Triple(
+                "Serie A",
+                "https://www.scorebat.com/embed/competition/italy-serie-a/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5",
+                "https://www.scorebat.com/embed/videofeed/competition/italy-serie-a/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5",
+            ),
+            Triple(
+                "Bundesliga",
+                "https://www.scorebat.com/embed/competition/germany-bundesliga/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5",
+                "https://www.scorebat.com/embed/videofeed/competition/germany-bundesliga/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5"
+            ),
+            Triple(
+                "Ligue 1",
+                "https://www.scorebat.com/embed/competition/france-ligue-1/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5",
+                "https://www.scorebat.com/embed/videofeed/competition/france-ligue-1/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5"
+            ),
+            Triple(
+                "Champions League",
+                "https://www.scorebat.com/embed/league/uefa-champions-league/?token=MjExMDVfMTc1MzEwMzY0OV84ODVjNWE1Y2E3MTRlODBhYTAxOWU1YmE4ZDBmYjNiNWFmZDYyYjcx",
+                "https://www.scorebat.com/embed/videofeed/league/uefa-champions-league/?token=MjExMDVfMTc1MzEwMzY0OV84ODVjNWE1Y2E3MTRlODBhYTAxOWU1YmE4ZDBmYjNiNWFmZDYyYjcx"
+            ),
+            Triple(
+                "Europa League",
+                "https://www.scorebat.com/embed/league/uefa-europa-league/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5",
+                "https://www.scorebat.com/embed/videofeed/league/uefa-europa-league/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5"
+            ),
+            Triple(
+                "Conference League",
+                "https://www.scorebat.com/embed/league/uefa-conference-league/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5",
+                "https://www.scorebat.com/embed/videofeed/league/uefa-conference-league/?token=MjExMDVfMTc1MzEwNTM1OV81MmEzOGM5Y2ZjNTJmZjQxZTBlMWIyNDhlNTBkMzVmOWZhZmE2ZDE5"
+            )
         )
         adapter.submitList(competition)
     }
 
-    private fun onCompetitionClicked(competition: Pair<String, String>) {
+    private fun onCompetitionClicked(competition: Triple<String, String, String>) {
         val result = competition
-        // Use the Kotlin extension in the fragment-ktx artifact.
         setFragmentResult(
             "competitionKey",
             bundleOf(
                 "competitionNameKey" to result.first,
-                "competitionUrlKey" to result.second
+                "competitionUrlSecondKey" to result.second,
+                "competitionUrlThirdKey" to result.third
             )
         )
         dialog?.dismiss()

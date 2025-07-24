@@ -20,6 +20,7 @@ import com.dirzaaulia.footballclips.ui.main.MainActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 
 class LiveScoreFragment : Fragment() {
@@ -123,14 +124,9 @@ class LiveScoreFragment : Fragment() {
 
                 }
 
-                val url =
-                    "<iframe src=\"https://www.scorebat.com/embed/livescore/?token=MjExMDVfMTY2MTkyNzk1N19iNTk0MDA0MmJmMDhiNzdjZjY4NjUxYWRlMTlmM2M0MTc5MTJiNTkx\" frameborder=\"0\" width=\"600\" height=\"760\" allowfullscreen allow='autoplay; fullscreen' style=\"width:100%;height:760px;overflow:hidden;display:block;\" class=\"_scorebatEmbeddedPlayer_\"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>"
-                val replacedUrl = url.replace("position:relative;padding-bottom:56.250%;", "")
-                var data =
-                    "<html><meta name=\"viewport\" content='width=device-width, height=device-height, initial-scale=1.0,text/html,charset=utf-8'>"
-                data =
-                    "$data<body style=\"padding: 0; margin: 0;\"><center>$replacedUrl</center></body></html>"
-                loadDataWithBaseURL(null, data, "text/html", "UTF-8", null)
+                MobileAds.registerWebView(this)
+                val url = "https://www.scorebat.com/embed/livescore/?token=MjExMDVfMTc1MjU0ODc2N19kMGM1OGQyNDllZjlmNjdiNTY3ZTZiYzM1OWRjMjRhYjQ2MmRkNTJm"
+                loadUrl(url)
             }
         }
     }

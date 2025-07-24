@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Football Clips</string>
-    <string name="information">Information</string>
-    <string name="data_provider">All football clips data is provided by <u>ScoreBat</u></string>
+    <string name="information">Data Source Information</string>
+    <string name="data_provider">All data in this app is provided by <b><u>ScoreBat</u></b></string>
     <string name="go_to_scorebat">Go To ScoreBat</string>
     <string name="scorebat_link">https://scorebat.com</string>
+    <string name="kofi_link">https://ko-fi.com/dirzaaulia</string>
+    <string name="saweria_link">https://saweria.co/dirzaaulia</string>
     <string name="livescore">Live Score</string>
     <string name="clips">Clips</string>
     <string name="videos">Videos</string>
@@ -14,6 +16,8 @@
     <string name="euro2024">Euro 2024</string>
     <string name="retry">Retry</string>
     <string name="search_here">Search Here</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ko_fi">Ko-Fi</string>
+    <string name="saweria">Saweria</string>
+    <string name="you_can_support_me_by_buying_me_a_coffee">You can support me by buying me a coffee!</string>
+    <string name="buy_me_a_coffee">Buy me a Coffee!</string>
 </resources>

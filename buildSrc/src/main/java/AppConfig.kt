@@ -1,9 +1,9 @@
 object AppConfig {
-    const val compileSdk = 34
+    const val compileSdk = 35
     const val minSdk = 24
-    const val targetSdk = 34
-    const val versionCode = 20
-    const val versionName = "4"
+    const val targetSdk = 35
+    const val versionCode = 22
+    const val versionName = "4.1"
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
     object KeyStore {
